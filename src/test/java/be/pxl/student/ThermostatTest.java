@@ -11,7 +11,7 @@ public class ThermostatTest {
 
 	@Before
 	public void setUp () throws Exception {
-		thermostat = new Thermostat (new HeatingStub ());
+		thermostat = new Thermostat (new HeatingMock ());
 		thermostat.setTarget (new Temperature (22));
 		thermostat.setCurrent (new Temperature (18));
 	}
@@ -32,10 +32,16 @@ public class ThermostatTest {
 		Assert.assertFalse (thermostat.isHeating ());
 	}
 
-	private class HeatingStub implements Heating {
+	private class HeatingMock implements Heating {
+
+		private boolean status;
 
 		public void setHeating (boolean status) {
+			this.status = status;
+		}
 
+		public boolean isHeating () {
+			return this.status;
 		}
 	}
 

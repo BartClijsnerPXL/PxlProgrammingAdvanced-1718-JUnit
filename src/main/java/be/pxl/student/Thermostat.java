@@ -23,16 +23,15 @@ public class Thermostat {
 	}
 
 	public boolean isHeating () {
-		return this.status;
+		return this.heating.isHeating ();
 	}
 
 	private void evaluate () {
 		if (this.current == null || this.target == null) {
-			this.status = false;
+			heating.setHeating (false);
 		} else {
-			this.status = this.current.getValue () < this.target.getValue ();
+			heating.setHeating (this.current.getValue () < this.target.getValue ());
 		}
-		heating.setHeating (this.status);
 	}
 
 }
