@@ -24,19 +24,4 @@ public class Temperature {
 		return false;
 	}
 
-
-	@Override
-	public boolean equals (Object o) {
-		if ( this == o ) { return true; }
-		if ( o == null || getClass () != o.getClass () ) { return false; }
-
-		Temperature that = (Temperature) o;
-
-		return Float.compare (that.temp, temp) == 0;
-	}
-
-	@Override
-	public int hashCode () {
-		return (temp != +0.0f ? Float.floatToIntBits (temp) : 0);
-	}
 }
