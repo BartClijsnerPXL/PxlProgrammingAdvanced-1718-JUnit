@@ -17,11 +17,11 @@ public class Temperature {
 	}
 
 	public boolean isBoiling () {
-		return false;
+		return this.temp >= 100;
 	}
 
 	public boolean isFreezing () {
-		return false;
+		return this.temp < 0;
 	}
 
 

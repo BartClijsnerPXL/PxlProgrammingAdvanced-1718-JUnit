@@ -41,4 +41,30 @@ public class TemperatureTest {
 	public void hashcode_should_be_the_same () throws Exception {
 		Assert.assertEquals (temp1.hashCode (), temp2.hashCode ());
 	}
+
+	@Test
+	public void temperature_should_be_boiling () throws Exception {
+		temp1.setValue (101);
+		Assert.assertTrue (temp1.isBoiling ());
+	}
+
+	@Test
+	public void temperature_should_not_be_boiling () throws Exception {
+		temp1.setValue (99);
+		Assert.assertFalse (temp1.isBoiling ());
+	}
+
+	@Test
+	public void temperature_should_be_freezing () throws Exception {
+		temp1.setValue (-1);
+		Assert.assertTrue (temp1.isFreezing ());
+	}
+
+	@Test
+	public void temperature_should_not_be_freezing () throws Exception {
+		temp1.setValue (1);
+		Assert.assertFalse (temp1.isFreezing ());
+	}
+
+
 }
