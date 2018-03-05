@@ -66,5 +66,14 @@ public class TemperatureTest {
 		Assert.assertFalse (temp1.isFreezing ());
 	}
 
+	@Test (expected = InvalidTemperatureExcpetion.class)
+	public void should_throw_exception_when_set_invalid_value () throws Exception {
+		temp1.setValue (-273.15F);
+	}
+
+	@Test (expected = InvalidTemperatureExcpetion.class)
+	public void should_throw_exception_with_invalid_value_in_constructor () throws Exception {
+		new Temperature (-400F);
+	}
 
 }

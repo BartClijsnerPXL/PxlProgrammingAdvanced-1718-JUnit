@@ -5,7 +5,7 @@ public class Temperature {
 	private float temp;
 
 	public Temperature (float temp) {
-		this.temp = temp;
+		this.setValue (temp);
 	}
 
 	public float getValue () {
@@ -13,6 +13,9 @@ public class Temperature {
 	}
 
 	public void setValue (float temp) {
+		if (temp <= -273.15F) {
+			throw new InvalidTemperatureExcpetion ();
+		}
 		this.temp = temp;
 	}
 
