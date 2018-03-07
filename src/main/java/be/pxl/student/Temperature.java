@@ -2,6 +2,7 @@ package be.pxl.student;
 
 public class Temperature {
 
+	private static final float MINIMUM_TEMPERATURE = -273.15F;
 	private float temp;
 
 	public Temperature (float temp) {
@@ -13,8 +14,8 @@ public class Temperature {
 	}
 
 	public void setValue (float temp) {
-		if (temp <= -273.15F) {
-			throw new InvalidTemperatureExcpetion ();
+		if (temp <= MINIMUM_TEMPERATURE) {
+			throw new InvalidTemperatureException ();
 		}
 		this.temp = temp;
 	}
