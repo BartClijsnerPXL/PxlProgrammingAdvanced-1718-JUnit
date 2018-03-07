@@ -4,7 +4,6 @@ public class Thermostat {
 
 	private Temperature target;
 	private Temperature current;
-	private boolean status;
 
 	private Heating heating;
 
@@ -27,11 +26,11 @@ public class Thermostat {
 	}
 
 	private void evaluate () {
-		if (this.current == null || this.target == null) {
-			heating.setHeating (false);
-		} else {
-			heating.setHeating (this.current.getValue () < this.target.getValue ());
-		}
+		this.heating.setHeating (
+			this.current != null
+				&& this.target != null
+				&& this.current.getValue () < this.target.getValue ()
+		);
 	}
 
 }
